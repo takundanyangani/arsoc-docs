@@ -1,0 +1,338 @@
+---
+title: "Step-by-Step Guides"
+description: "Procedural guides for common ALPHA System tasks"
+---
+
+This section provides detailed, step-by-step instructions for the most common tasks in ALPHA.
+
+---
+
+## Creating a Batch
+
+**Who does this:** Stock Manager
+
+**Time required:** 5-10 minutes
+
+### Steps
+
+1. Navigate to **Stock > Batches**
+2. Click **Create New Batch**
+3. Enter a batch description (e.g., "Samsung phones batch Q2 2025")
+4. Select the **Supplier** from dropdown
+5. Select the **Warehouse** where items will be stored
+6. For each product model in the batch:
+   - Click **Add Model**
+   - Select **Model** (e.g., Samsung S23 Ultra)
+   - Enter **Quantity** (number of units)
+   - Enter **Buying Price** (cost from supplier)
+   - Enter **Retail Price** (selling price to customers)
+7. **Upload supporting documents**:
+   - Invoice from supplier
+   - Delivery note or packing slip
+   - Any other relevant documentation
+8. Click **Submit for Approval**
+
+:::caution
+Supporting documents are required. Batches without complete documentation will be rejected.
+:::
+
+### After Submission
+
+- Batch enters **Pending** status
+- Operations Manager reviews documents
+- Status changes to **Approved** or **Rejected**
+- Once approved, you can assign stock to agents
+
+---
+
+## Assigning Stock to Agents
+
+**Who does this:** Operations Manager (automatic after batch approval)
+
+**Time required:** Automatic process
+
+### Overview
+
+When a batch is approved, the system automatically:
+1. Assigns individual units to agents randomly
+2. Generates unique serial numbers for each unit
+3. Notifies agents of newly available inventory
+
+### What Happens
+
+Each unit receives a permanent serial number used for tracking through the entire sales lifecycle. Agents can then begin selling assigned inventory.
+
+:::note
+Serial numbers are unique identifiers. Keep them for records and commission tracking.
+:::
+
+---
+
+## Adding a Supplier
+
+**Who does this:** Stock Manager
+
+**Time required:** 2-3 minutes
+
+### Steps
+
+1. Navigate to **Stock > Supplies**
+2. Click **Add New Supplier**
+3. Enter **Supplier Name** (e.g., "Samsung Zimbabwe Ltd")
+4. Enter **Phone Number** (supplier contact)
+5. Enter **Email Address**
+6. Enter **Address** (supplier location)
+7. Click **Save**
+
+:::tip
+Keep supplier contact information current for efficient communication and procurement.
+:::
+
+---
+
+## Adding a Branch
+
+**Who does this:** System Administrator
+
+**Time required:** 2-3 minutes
+
+### Steps
+
+1. Navigate to **Admin > Branches**
+2. Click **Add New Branch**
+3. Enter **Branch Name** (e.g., "Gweru")
+4. Enter **Branch Code** (e.g., "GW") — must be unique
+5. Select **Parent Branch** if this is a sub-branch (leave blank for main branch)
+6. Click **Save**
+
+### Branch Hierarchy Example
+
+```
+Main Branch (HQ)
+├── Gweru Branch (GW)
+├── Kariba Branch (KB)
+└── Harare North Branch (HN)
+```
+
+:::tip
+Use consistent, short codes for easy identification in system-wide operations.
+:::
+
+---
+
+## Creating a User Account
+
+**Who does this:** System Administrator
+
+**Time required:** 3-5 minutes
+
+### Steps
+
+1. Navigate to **Admin > Users**
+2. Click **Add New User**
+3. Enter **Full Name**
+4. Enter **Email Address** (unique — cannot be reused)
+5. Enter **Phone Number**
+6. Enter **Username** (for login)
+7. Select **Role**:
+   - Admin (full system access)
+   - Agent (field sales only)
+   - User (back-office access based on permissions)
+8. Select **Branch(es)** user will work in
+9. Click **Send Activation Email** or set initial password
+10. Click **Save**
+
+### Assigning Permissions
+
+For User role accounts:
+1. Click user name to edit
+2. Click **Edit Permissions**
+3. Check boxes for modules/features user should access
+4. Click **Save**
+
+:::caution
+Only System Admins can create accounts and assign permissions. Use principle of least privilege — grant only necessary access.
+:::
+
+---
+
+## Submitting a Client Application (Agent)
+
+**Who does this:** Field Agent
+
+**Time required:** 5-10 minutes
+
+### Steps
+
+1. Open **WhatsApp**
+2. Message the ALPHA chatbot number
+3. Select **Create Application** from main menu
+4. Select **Branch** customer is from
+5. Select **Partner Bank** (e.g., ZB Bank)
+6. Select **Currency** (USD, ZWL, etc.)
+7. **View available products** with pricing and terms
+8. Select **Product** and **Installment term**
+9. Provide **customer information**:
+   - Full name
+   - National ID number
+   - Phone number
+   - Employer name
+   - Monthly income
+   - Residential address
+10. Submit application
+11. **Save the application reference number** provided
+
+:::warning
+Ensure all customer information is accurate. Errors may cause application rejection.
+:::
+
+### Checking Status
+
+Send the **application reference number** to the chatbot anytime to check status.
+
+---
+
+## Processing Loan Applications (Sales Officer)
+
+**Who does this:** Sales Officer
+
+**Time required:** 5-15 minutes per application
+
+### Steps
+
+1. Navigate to **Loan > Approval Queue**
+2. Click on a pending application
+3. **Review customer details**:
+   - Verify name and ID match submitted documents
+   - Confirm employer and income information
+   - Check residential address
+4. **Verify supporting documents**:
+   - Copy of national ID
+   - Proof of employment
+   - Proof of residence (optional)
+5. **Make decision**:
+   - **Approve** — Application moves to Disbursement Queue
+   - **Reject** — Agent is notified to resubmit with corrections
+6. Add notes if rejecting (e.g., "Missing employment letter")
+7. Click **Submit**
+
+:::caution
+Applications cannot proceed to disbursement without complete and verified documentation. Request missing documents from agents promptly.
+:::
+
+---
+
+## Configuring Pricing Lists
+
+**Who does this:** Sales Officer
+
+**Time required:** 10-20 minutes
+
+### Steps
+
+1. Navigate to **Loan > Pricing List**
+2. Select **Partner** (e.g., ZB Bank)
+3. Select **Currency** (e.g., USD)
+4. Click **Download Template**
+5. **Open the spreadsheet** and fill in:
+   - Model name/code
+   - Loan amount for each model
+   - Any partner-specific pricing
+6. **Upload completed template** back to system
+7. System validates entries
+8. Click **Confirm** to activate pricing
+
+### Why This Matters
+
+Pricing must be configured for each partner-currency combination before customers can apply for loans through that partner. Without pricing, products won't appear in the chatbot.
+
+:::tip
+Review pricing regularly to ensure it reflects current terms, commissions, and product availability.
+:::
+
+---
+
+## Adding a Product Category
+
+**Who does this:** Stock Manager
+
+**Time required:** 1-2 minutes
+
+### Steps
+
+1. Navigate to **Stock > Category**
+2. Click **Add New Category**
+3. Enter **Category description** (e.g., "Mobile Phones", "Furniture", "Electronics")
+4. Click **Create**
+
+:::note
+Categories help organize inventory and are used when creating batches and configuring products.
+:::
+
+---
+
+## Adding a Manufacturer
+
+**Who does this:** Stock Manager
+
+**Time required:** 1-2 minutes
+
+### Steps
+
+1. Navigate to **Stock > Manufacturer**
+2. Click **Add New Manufacturer**
+3. Enter **Manufacturer description** (e.g., "Samsung", "Apple", "Huawei")
+4. Click **Create**
+
+### Example
+
+If category is "Mobile Phones", manufacturers might be:
+- Samsung
+- Apple
+- Huawei
+- Oppo
+
+---
+
+## Adding a Product Model
+
+**Who does this:** Stock Manager
+
+**Time required:** 2-3 minutes
+
+### Steps
+
+1. Navigate to **Stock > Model**
+2. Click **Add New Model**
+3. Enter **Model description** (e.g., "Samsung S23 Ultra")
+4. Select **Manufacturer** (inherited category)
+5. Category is auto-filled based on manufacturer
+6. Click **Create**
+
+### Example
+
+- Manufacturer: Samsung
+- Model: Samsung S23 Ultra
+- Category: Mobile Phones (auto-filled)
+
+---
+
+## Adding a Warehouse
+
+**Who does this:** Stock Manager
+
+**Time required:** 2-3 minutes
+
+### Steps
+
+1. Navigate to **Stock > Warehouse**
+2. Click **Add New Warehouse**
+3. Enter **Warehouse Shortcode** (e.g., "HQ", "GW", "KB")
+4. Enter **Description** (e.g., "Main Harare Warehouse")
+5. Enter **Location** (e.g., "Harare CBD")
+6. Select **Type** (Primary, Secondary, etc.)
+7. Click **Create**
+
+:::tip
+Use unique shortcodes for easy identification in batch creation and inventory tracking.
+:::
