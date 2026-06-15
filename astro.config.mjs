@@ -8,7 +8,7 @@ export default defineConfig({
 		starlight({
 			title: 'ALPHA System Documentation',
 			logo: {
-				src: "C:\\Users\\takun\\Documents\\books\\arsoc-docs\\public\\arsoc-logo.png",
+				src: "/arsoc-logo.png",
 				alt: 'ARSOC Logo',
 			},
 			social: [

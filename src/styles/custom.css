@@ -19,14 +19,15 @@
   --sl-color-accent-low: #fff7ed;
   --sl-color-accent: #ff9800;
   --sl-color-accent-high: #ff8800;
-  --sl-color-text: #0a1628 !important;
-  --sl-color-bg: #ffffff !important;
-  --sl-color-gray-1: #f3f4f6;
-  --sl-color-gray-2: #e5e7eb;
-  --sl-color-gray-4: #9ca3af;
-  --sl-color-gray-5: #6b7280;
-  --sl-color-gray-6: #374151;
-  --sl-color-white: #0a1628;
+  --sl-color-text: #0f172a !important;
+  --sl-color-bg: #f8fafc !important;
+--sl-color-gray-1: #f1f5f9;
+  --sl-color-gray-2: #e2e8f0;
+  --sl-color-gray-3: #cbd5e1;
+  --sl-color-gray-4: #94a3b8;
+  --sl-color-gray-5: #64748b;
+  --sl-color-gray-6: #334155;
+  --sl-color-white: #0f172a;
 }
 
 /* Page Transition Animation */
