@@ -1,5 +1,5 @@
 ---
-// Home page for ALPHA System
+// Home page with ARSOC logo image
 ---
 
 <html lang="en">
@@ -8,24 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ALPHA System</title>
     <style>
-      :root {
-        color-scheme: light dark;
-      }
-
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-          Cantarell, sans-serif;
-        background: var(--sl-color-bg, #ffffff);
-        color: var(--sl-color-text, #000000);
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          background: var(--sl-color-bg, #1a1a1a);
-          color: var(--sl-color-text, #ffffff);
-        }
-      }
       * {
         margin: 0;
         padding: 0;
@@ -34,12 +16,12 @@
 
       body {
         font-family:
-          system-ui,
-          -apple-system,
-          sans-serif;
-        background-color: var(--sl-color-bg);
-        color: var(--sl-color-text);
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: linear-gradient(135deg, #0a1628 0%, #1f2937 100%);
+        color: #ffffff;
         line-height: 1.6;
+        min-height: 100vh;
       }
 
       .container {
@@ -50,25 +32,76 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        animation: pageEnter 0.6s ease-out;
+      }
+
+      @keyframes pageEnter {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .logo-wrapper {
+        margin: 0 auto 40px;
+        animation: logoSlide 0.8s ease-out;
+      }
+
+      @keyframes logoSlide {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
 
       .logo {
-        max-width: 200px;
-        margin: 0 auto 40px;
+        max-width: 180px;
+        height: auto;
         display: block;
+        transition:
+          transform 0.3s ease,
+          filter 0.3s ease;
+        cursor: pointer;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+        filter: brightness(1.1);
       }
 
       h1 {
         font-size: 3.5rem;
         margin: 20px 0 10px 0;
         font-weight: 700;
+        color: #ffffff;
+        animation: slideInLeft 0.7s ease-out 0.1s backwards;
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
 
       h2 {
         font-size: 1.5rem;
         font-weight: 600;
         margin: 0 0 20px 0;
-        opacity: 0.9;
+        color: #ff9800;
+        animation: slideInLeft 0.7s ease-out 0.2s backwards;
       }
 
       p {
@@ -76,7 +109,8 @@
         margin: 20px auto;
         max-width: 600px;
         line-height: 1.6;
-        opacity: 0.85;
+        opacity: 0.9;
+        animation: slideInLeft 0.7s ease-out 0.3s backwards;
       }
 
       .buttons {
@@ -85,82 +119,110 @@
         gap: 20px;
         justify-content: center;
         flex-wrap: wrap;
+        animation: slideInLeft 0.7s ease-out 0.4s backwards;
       }
 
       .btn {
-        padding: 12px 28px;
-        border-radius: 6px;
+        padding: 14px 32px;
+        border-radius: 8px;
         font-weight: 600;
         text-decoration: none;
-        transition: all 0.2s;
+        transition: all 0.3s ease;
         border: none;
         cursor: pointer;
         font-size: 1rem;
       }
 
       .btn-primary {
-        background: #3b82f6;
+        background: linear-gradient(135deg, #ff9800 0%, #ff8800 100%);
         color: white;
       }
 
       .btn-primary:hover {
-        background: #2563eb;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(255, 152, 0, 0.4);
       }
 
       .btn-secondary {
-        border: 2px solid #3b82f6;
-        color: #3b82f6;
+        border: 2px solid #ff9800;
+        color: #ff9800;
         background: transparent;
       }
 
       .btn-secondary:hover {
-        background: rgba(59, 130, 246, 0.1);
+        background: rgba(255, 152, 0, 0.1);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(255, 152, 0, 0.2);
       }
 
       footer {
         text-align: center;
         padding: 40px 20px;
-        border-top: 1px solid var(--sl-color-gray-5);
+        border-top: 1px solid rgba(255, 152, 0, 0.2);
         margin-top: 80px;
-        opacity: 0.75;
-        font-size: 0.9rem;
+        opacity: 0.85;
+        font-size: 0.95rem;
         width: 100%;
       }
 
       footer p {
-        margin: 5px auto;
+        margin: 8px auto;
+        font-size: 0.95rem;
+        text-align: center;
         max-width: 100%;
       }
-      html[data-theme="dark"] {
-        background-color: #1a1a1a;
-        color: #ffffff;
-      }
-      html[data-theme="light"] {
-        background-color: #ffffff;
-        color: #000000;
+
+      footer strong {
+        color: #ff9800;
       }
 
-      body {
-        background-color: inherit;
-        color: inherit;
-        transition:
-          background-color 0.3s,
-          color 0.3s;
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      /* Mobile responsive */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        h2 {
+          font-size: 1.25rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .btn {
+          padding: 12px 24px;
+          font-size: 0.95rem;
+        }
+
+        .logo {
+          max-width: 150px;
+        }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <img
-        id="themeLogoImg"
-        src="/logo-light.png"
-        alt="ALPHA System Logo"
-        class="logo"
-      />
+      <div class="logo-wrapper">
+        <img
+          id="themeLogoImg"
+          src="/logo-light.png"
+          alt="Alpha System Logo"
+          class="logo"
+        />
+      </div>
 
       <h1>ALPHA System</h1>
 
-      <h2>A Comprehensive Credit Sales Management Platform</h2>
+      <h2>Credit Sales Management Platform</h2>
 
       <p>
         Streamline inventory management, agent coordination, and loan processing
@@ -169,7 +231,7 @@
 
       <div class="buttons">
         <a href="/getting-started/" class="btn btn-primary">Get Started</a>
-        <a href="/troubleshooting/" class="btn btn-secondary">Learn More</a>
+        <a href="/troubleshooting/" class="btn btn-secondary">Get Help</a>
       </div>
     </div>
 
@@ -184,36 +246,25 @@
     </footer>
 
     <script is:inline>
-      function updateTheme() {
+      function updateLogo() {
+        const img = document.getElementById("themeLogoImg");
         const theme =
           localStorage.getItem("starlight-theme") ||
           (window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light");
-
-        // Update HTML element with theme class
-        document.documentElement.setAttribute("data-theme", theme);
-        document.documentElement.style.colorScheme = theme;
-
-        // Update logo
-        const img = document.getElementById("themeLogoImg");
         img.src = theme === "dark" ? "/logo-dark.png" : "/logo-light.png";
       }
 
-      // Update on page load
-      updateTheme();
-
-      // Listen for Starlight theme changes
+      updateLogo();
       window.addEventListener("storage", (e) => {
         if (e.key === "starlight-theme") {
-          updateTheme();
+          updateLogo();
         }
       });
-
-      // Also listen to system theme changes
       window
         .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", updateTheme);
+        .addEventListener("change", updateLogo);
     </script>
   </body>
 </html>

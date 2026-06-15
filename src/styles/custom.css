@@ -1,0 +1,316 @@
+/* ARSOC Brand Colors */
+:root {
+  --sl-color-accent-low: #fff7ed;
+  --sl-color-accent: #ff9800;
+  --sl-color-accent-high: #ff8800;
+  --sl-color-text: #ffffff;
+  --sl-color-bg: #0a1628;
+  --sl-color-gray-1: #1f2937;
+  --sl-color-gray-2: #374151;
+  --sl-color-gray-3: #4b5563;
+  --sl-color-gray-4: #6b7280;
+  --sl-color-gray-5: #9ca3af;
+  --sl-color-gray-6: #d1d5db;
+  --sl-color-white: #ffffff;
+}
+
+/* Light mode overrides */
+:root[data-theme="light"] {
+  --sl-color-accent-low: #fff7ed;
+  --sl-color-accent: #ff9800;
+  --sl-color-accent-high: #ff8800;
+  --sl-color-text: #0a1628 !important;
+  --sl-color-bg: #ffffff !important;
+  --sl-color-gray-1: #f3f4f6;
+  --sl-color-gray-2: #e5e7eb;
+  --sl-color-gray-4: #9ca3af;
+  --sl-color-gray-5: #6b7280;
+  --sl-color-gray-6: #374151;
+  --sl-color-white: #0a1628;
+}
+
+/* Page Transition Animation */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Apply to main content */
+main,
+article,
+.sl-markdown-content {
+  animation: pageEnter 0.5s ease-out;
+}
+
+/* Scroll animation for headings */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+h1,
+h2,
+h3 {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* Stagger animations for list items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+li {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+li:nth-child(1) { animation-delay: 0.1s; }
+li:nth-child(2) { animation-delay: 0.2s; }
+li:nth-child(3) { animation-delay: 0.3s; }
+li:nth-child(4) { animation-delay: 0.4s; }
+li:nth-child(5) { animation-delay: 0.5s; }
+
+/* Button Styling - ARSOC Orange */
+button,
+a.sl-button,
+.sl-button {
+  background-color: #ff9800 !important;
+  color: white !important;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover,
+a.sl-button:hover,
+.sl-button:hover {
+  background-color: #ff8800 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+button:active,
+a.sl-button:active,
+.sl-button:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button */
+.sl-button.secondary,
+.sl-button.minimal,
+.btn-secondary {
+  background-color: transparent !important;
+  border: 2px solid #ff9800 !important;
+  color: #ff9800 !important;
+}
+
+.sl-button.secondary:hover,
+.sl-button.minimal:hover,
+.btn-secondary:hover {
+  background-color: rgba(255, 152, 0, 0.1) !important;
+  border-color: #ff8800 !important;
+  color: #ff8800 !important;
+  transform: translate(-4px);
+  box-shadow: 0 8px 24px rgba(255, 152, 0, 0.2);
+}
+
+/* Link styling */
+a {
+  color: #ff9800;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff8800;
+  text-decoration: underline;
+}
+
+/* Code blocks with theme colors */
+code {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre code {
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+/* Sidebar styling - BLACK TEXT */
+.sl-sidebar-item {
+  color: var(--sl-color-text);
+}
+
+.sl-sidebar-item a {
+  color: var(--sl-color-text) !important;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  padding: 8px 12px;
+  display: block;
+  border-radius: 6px;
+}
+/* Hover state for links that are NOT active */
+.sl-sidebar-item:not(.active) a:hover,
+.sl-sidebar-item:not([aria-current="page"]) a:hover {
+  background-color: rgba(255, 152, 0, 0.15) !important; /* Soft orange tint background */
+  color: var(--sl-color-accent) !important; /* Keeps text readable orange */
+}
+
+.sl-sidebar-item:hover a {
+  color: #ff9800;
+}
+
+/* Active sidebar item - ORANGE TEXT ONLY, NO FILL */
+.sl-sidebar-item a[aria-current="page"],
+a[aria-current="page"],
+a[aria-current="page"] * {
+  background-color: #ff9800 !important;
+  color: #0a1628 !important; /* High contrast dark blue */
+  box-shadow: 0 2px 6px rgba(255, 152, 0, 0.2);
+  font-weight: 700;
+}
+
+.sl-sidebar-item a[aria-current="page"]:hover,
+a[aria-current="page"]:hover {
+  background-color: #ff8800 !important;
+  color: #0a1628 !important;
+}
+
+/* Sidebar section headers */
+.sl-sidebar-item > details > summary {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+  font-weight: 600;
+  color: var(--sl-color-text) !important;
+  padding: 6px 0;
+}
+
+.sl-sidebar-item > details > summary:hover {
+  color: #ff9800 !important;
+}
+
+.sl-sidebar-item > details[open] > summary {
+  color: #ff9800 !important;
+}
+
+/* Aside/Note boxes */
+.sl-aside-note {
+  border-left: 4px solid #ff9800;
+  background-color: rgba(255, 152, 0, 0.05);
+}
+
+.sl-aside-tip {
+  border-left: 4px solid #ff9800;
+  background-color: rgba(255, 152, 0, 0.05);
+}
+
+.sl-aside-caution {
+  border-left: 4px solid #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.05);
+}
+
+.sl-aside-danger {
+  border-left: 4px solid #ff4444;
+  background-color: rgba(255, 68, 68, 0.05);
+}
+
+/* Table styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+th {
+  background-color: rgba(255, 152, 0, 0.2);
+  color: #ff9800;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #ff9800;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #374151;
+}
+
+tr:hover {
+  background-color: rgba(255, 152, 0, 0.05);
+}
+
+/* Blockquote styling */
+blockquote {
+  border-left: 4px solid #ff9800;
+  padding-left: 16px;
+  margin-left: 0;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Badge styling */
+.sl-badge {
+  background-color: rgba(255, 152, 0, 0.2);
+  color: #ff9800;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus,
+input:focus {
+  outline: 2px solid #ff9800;
+  outline-offset: 2px;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
