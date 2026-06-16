@@ -209,7 +209,9 @@
       }
     </style>
   </head>
-  <body>
+  <body
+    style="background-color: var(--sl-color-bg); transition: background-color 0.3s ease;"
+  >
     <div class="container">
       <div class="logo-wrapper">
         <img
@@ -265,6 +267,41 @@
       window
         .matchMedia("(prefers-color-scheme: dark)")
         .addEventListener("change", updateLogo);
+
+      // Update on page load and theme change
+
+      function updateTheme() {
+        // 1. Get the current theme from Starlight's local storage
+        const storedTheme = localStorage.getItem("starlight-theme");
+
+        // 2. Check the user's system preference as a fallback
+        const isSystemDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+
+        // 3. Determine if we should be in dark or light mode
+        const isDark = storedTheme === "dark" || (!storedTheme && isSystemDark);
+        const currentTheme = isDark ? "dark" : "light";
+
+        // 4. Force the HTML tag to update its data-theme attribute
+        // This makes your custom.css variables (--sl-color-bg) instantly kick in!
+        document.documentElement.setAttribute("data-theme", currentTheme);
+      }
+
+      // Update on page load
+      updateTheme();
+
+      // Listen for Starlight theme changes
+      window.addEventListener("storage", (e) => {
+        if (e.key === "starlight-theme") {
+          updateTheme();
+        }
+      });
+
+      // Also listen to system theme changes
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", updateTheme);
     </script>
   </body>
 </html>

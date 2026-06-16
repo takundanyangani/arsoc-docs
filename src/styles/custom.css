@@ -5,6 +5,8 @@
   --sl-color-accent-high: #ff8800;
   --sl-color-text: #ffffff;
   --sl-color-bg: #0a1628;
+  --sl-color-bg-sidebar: #0a1628;
+  --sl-color-bg-nav:#0a1628;
   --sl-color-gray-1: #1f2937;
   --sl-color-gray-2: #374151;
   --sl-color-gray-3: #4b5563;
@@ -21,7 +23,9 @@
   --sl-color-accent-high: #ff8800;
   --sl-color-text: #0f172a !important;
   --sl-color-bg: #f8fafc !important;
---sl-color-gray-1: #f1f5f9;
+  --sl-color-bg-sidebar: #f1f5f9 !important;
+  --sl-color-bg-nav:#f1f5f9 !important;
+  --sl-color-gray-1: #f1f5f9;
   --sl-color-gray-2: #e2e8f0;
   --sl-color-gray-3: #cbd5e1;
   --sl-color-gray-4: #94a3b8;
@@ -105,7 +109,7 @@ button,
 a.sl-button,
 .sl-button {
   background-color: #ff9800 !important;
-  color: white !important;
+  color: #0a1628 !important;
   border: none;
   border-radius: 6px;
   padding: 10px 20px;
